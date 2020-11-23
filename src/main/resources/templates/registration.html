@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Registration</title>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${use}" method="post">
+    <div class="form-group">
+        <label>Fisrt Name</label>
+        <input type="text"  th:field="*{fname}">
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text"  th:field="*{lname}">
+    </div>
+    <div>
+        <label>Email Address</label>
+        <input type="email" th:field="*{email}">
+    </div>
+    <div>
+        <label>Country</label>
+        <select th:field="*{country}">
+            <option th:value="'USA'" th:text="USA"></option>
+            <option th:value="'UK'" th:text="UK"></option>
+            <option th:value="'Australia'" th:text="Australia"></option>
+            <option th:value="'Canada'" th:text="Canada"></option>
+        </select>
+    </div>
+    <div>
+        <p>Gender :</p>
+            <label>Male</label>
+            <input type="radio" value="Male" th:field="*{gender}">
+            <label>Female</label>
+            <input type="radio" value="Female" th:field="*{gender}">
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" th:field="*{password}">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</body>
+</html>
